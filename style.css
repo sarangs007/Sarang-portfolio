@@ -265,13 +265,8 @@ nav a.active{
     object-fit: contain;
     filter: drop-shadow(0 0 24px rgba(181, 75, 255, 0.35));
     transform-origin: center center;
-    animation: spin 1.6s linear infinite;
+    animation: none;
     will-change: transform;
-}
-
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
 }
 
 /* About Section */
