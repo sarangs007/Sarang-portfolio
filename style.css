@@ -352,25 +352,27 @@ nav a.active{
 }
 
 .projects-title{
-    font-size: 5rem;
+    font-size: 4.6rem;
     font-weight: 800;
-    color: #ffffff;
+    color: var(--accent);
     line-height: 1.15;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 0 0 30px rgba(181, 75, 255, 0.3);
 }
 
 .projects-title span{
-    background: linear-gradient(135deg, #fff 0%, #b54bff 60%, #00f2fe 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--accent);
+    text-shadow: 0 0 30px rgba(181, 75, 255, 0.3);
 }
 
 .projects-subtitle{
-    color: rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.85);
     font-size: 1.7rem;
     max-width: 700px;
     margin: 0 auto 3.5rem auto;
     line-height: 1.6;
+    text-align: center;
 }
 
 .projects-grid{
