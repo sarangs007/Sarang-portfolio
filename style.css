@@ -264,10 +264,15 @@ nav a.active{
     display: block;
     object-fit: contain;
     filter: drop-shadow(0 0 24px rgba(181, 75, 255, 0.35));
-    animation: spin 1s linear infinite;
+    transform-origin: center center;
+    animation: spin 1.6s linear infinite;
+    will-change: transform;
 }
 
-@keyframes spin{ to{ transform: rotate(360deg); } }
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
 
 /* About Section */
 .about{
