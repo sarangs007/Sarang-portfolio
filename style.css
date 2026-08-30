@@ -1,0 +1,532 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+:root{
+    --bg-start: #fff7ff;
+    --bg-end: #f0eefc;
+    --accent: #b54bff;
+    --accent-2: #8f6dff;
+    --accent-3: #d29dff;
+    --muted: #8b8b98;
+    --card-bg: #ffffff;
+    --text-color: #0b0b0b;
+    --pill-bg: rgba(0,0,0,0.06);
+    --loader-bg: #120d17;
+    --loader-glow: rgba(181, 75, 255, 0.2);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+/* Enable smooth scrolling for in-page anchor links */
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: #120f14;
+    color: var(--text-color);
+}
+
+/* Full-bleed portfolio layout */
+.site-frame{
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
+    overflow: visible;
+    background: #120f14;
+    box-shadow: none;
+    padding-top: 8rem; /* make room for fixed header */
+}
+
+header{
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 1.6rem 5%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 60;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease, backdrop-filter 0.25s ease;
+}
+
+.logo{
+    font-size: 3rem;
+    color: var(--accent);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.logo:hover{
+    transform: scale(1.1);
+}
+
+/* Logo image in header */
+.logo-img{
+    height: 44px;
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.8rem;
+    border-radius: 6px;
+}
+.logo-text{ font-size: 2.6rem; vertical-align: middle; color: var(--accent); font-weight:800; }
+
+@media(max-width:600px){
+    .logo-img{ height: 36px; margin-right:0.6rem; }
+    .logo-text{ font-size: 2.2rem; }
+}
+
+nav{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a{
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin: 0 .4rem;
+    font-weight: 600;
+    transition: 0.2s ease;
+    background: rgba(255,255,255,0.03);
+    padding: .5rem .9rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Ensure nav links can host a background layer */
+nav a{
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+}
+
+/* Active/hover glass pill behind nav text */
+nav a::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    pointer-events: none;
+    transform: scale(0.98);
+    transition: transform 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, opacity 0.18s ease;
+    z-index: -1;
+}
+
+nav a.glass::before{
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(181,75,255,0.06);
+    opacity: 0.9;
+}
+
+nav a.active::before,
+nav a:hover::before{
+    transform: scale(1.02);
+    background: rgba(181,75,255,0.08);
+    border-color: rgba(181,75,255,0.14);
+    opacity: 1;
+}
+
+nav a{ color: inherit; }
+
+nav a:hover,
+nav a.active{
+    color: #fff;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent), 0 0 40px var(--accent);
+    text-shadow: 0 0 5px rgba(255,255,255,0.8);
+}
+
+@media(max-width:995px){
+    nav{
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        width: 40%;
+        border-left: 3px solid #b74b4b;
+        border-bottom: 3px solid #b74b4b;
+        border-bottom-left-radius: 2rem;
+        padding: 1rem solid;
+        background-color: #000000;
+        border-top: 0.1rem solid rgba(0,0,0,0.1);
+    }
+        padding-top: 8rem; /* make room for fixed header */
+
+    nav.active{
+        display: block;
+    }
+
+    nav a{
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    nav a:hover,
+    nav a.active{
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid #b74b4b;
+    }
+}
+
+section{
+    min-height: 100vh;
+    padding: 5rem 9% 5rem;
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding: 4rem 5% 6rem;
+}
+
+.home .home-content h1{
+    font-size: 7.6rem;
+    font-weight: 800;
+    line-height: 1.02;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+}
+
+span{
+    color: var(--accent);
+}
+
+.home-content h3{
+    font-size: 3.6rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.home-content p{
+    font-size: 1.6rem;
+    color: rgba(255,255,255,0.85);
+    max-width: 62rem;
+}
+
+.home-img{
+    border-radius: 50%;
+}
+
+.home-img img{
+    position: relative;
+    width: 40vw;
+    border-radius: 14px;
+    box-shadow: 0 40px 90px rgba(0,0,0,0.6);
+    cursor: pointer;
+    transition: transform 0.35s ease;
+}
+
+.home-img img:hover{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.social-icons a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 1px solid rgba(255,255,255,0.06);
+    font-size: 1.6rem;
+    border-radius: 12px;
+    margin: 2rem 1rem 2rem 0;
+    transition: 0.25s ease;
+    color: var(--accent);
+}
+
+.social-icons a:hover{
+    color: #fff;
+    transform: translateY(-6px);
+    background-color: var(--accent);
+    box-shadow: 0 20px 50px rgba(181,75,255,0.12);
+}
+
+.btn{
+    display: inline-block;
+    padding: 1rem 2.4rem;
+    background-color: var(--accent);
+    border-radius: 999px;
+    font-size: 1.6rem;
+    color: #fff;
+    letter-spacing: 0.04rem;
+    font-weight: 700;
+    border: 0;
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+
+.btn:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(181,75,255,0.12);
+}
+
+.typing-text{
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+    color: #222;
+}
+
+.typing-text span{
+    position: relative;
+}
+
+.typing-text span::before{
+    content: "software Developer";
+    color: var(--accent);
+    animation: words 20s infinite;
+}
+
+.typing-text span::after{
+    display: none;
+    content: none;
+}
+
+@keyframes words{
+    0%, 20%{
+        content: "Web Developer";
+    }
+    21%, 40%{
+        content: "Developer";
+    }
+    41%, 60%{
+        content: "Web Designer";
+    }
+    61%, 80%{
+        content: "UI/UX Designer";
+    }
+    81%, 100%{
+        content: "Hardware Engineer";
+    }
+}
+
+@media (max-width: 1000px){
+    .home{
+        flex-direction: column-reverse;
+        padding: 3rem 3rem;
+        gap: 2rem;
+    }
+    .home .home-content{ width:100%; }
+    .home-img img{ width: 80vw; }
+}
+
+@media(max-width:995px){
+    .home{
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+
+    .home .home-content h3{
+        font-size: 2.5rem;
+    }
+
+    .home-content h1{
+        font-size: 5rem;
+    }
+
+    .home-img img{
+        width: 70vw;
+        margin-top: 4rem;
+    }
+}
+
+/* Preloader styles */
+#preloader{
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, rgba(181, 75, 255, 0.08), rgba(18, 13, 23, 0.98) 40%, #08070b 100%);
+    box-shadow: inset 0 0 80px var(--loader-glow);
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#preloader.preloader-hidden{
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-img{
+    width: 85vw;
+    height: 85vh;
+    max-width: 900px;
+    max-height: 900px;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 0 24px rgba(181, 75, 255, 0.35));
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin{
+    to{ transform: rotate(360deg); }
+}
+
+/* Enhanced loader animations */
+.loader-img{
+    width: 85vw;
+    height: 85vh;
+    max-width: 900px;
+    max-height: 900px;
+    display: block;
+    object-fit: contain;
+    animation: spin 1s linear infinite, pulse 1.5s ease-in-out infinite;
+}
+
+/* Glassmorphism utility (copied/adapted from portfolio-advanced-main) */
+.glass{
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(181, 75, 255, 0.08);
+    transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+}
+
+.glass:hover{
+    border-color: rgba(181, 75, 255, 0.18);
+    transform: translateY(-2px);
+}
+
+/* Apply a slightly different style for active/hover nav pills when using glass */
+nav a.glass{
+    background: rgba(181,75,255,0.08);
+    border-color: rgba(181,75,255,0.12);
+    color: #fff;
+}
+
+@media (max-width: 600px){
+    .loader-img{ width: 70vw; height: 70vh; max-width: 480px; max-height: 480px; }
+}
+
+@keyframes pulse{
+    0%,100%{ transform: scale(1); }
+    50%{ transform: scale(1.08); }
+}
+
+/* path draw (plays once while preloader is visible) */
+.loader-img path{
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: dash 1.2s ease-in-out forwards;
+}
+
+@keyframes dash{
+    to{ stroke-dashoffset: 0; }
+}
+
+/* Hide content until preloader finishes, then animate it in */
+body.content-hidden header,
+body.content-hidden .home{
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    pointer-events: none;
+}
+
+body.content-visible header,
+body.content-visible .home{
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s;
+    pointer-events: auto;
+}
+
+.about{
+    padding: 6rem 6%;
+    background: transparent;
+}
+.about-inner h2{
+    text-align: center;
+    font-size: 4.6rem;
+    color: var(--accent);
+    margin-bottom: 2rem;
+}
+.about-inner p{
+    max-width: 1000px;
+    margin: 0 auto 3rem auto;
+    color: rgba(255,255,255,0.9);
+    font-size: 1.6rem;
+    line-height: 1.8;
+}
+.about-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.about-left h3, .about-right h3{
+    color: var(--accent);
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+}
+.about-left ul{ list-style: none; }
+.about-left li{ margin-bottom: 2.4rem; }
+.about-left li strong{ display:block; font-size:1.6rem; color:#fff; }
+.about-left li span{ color: rgba(255,255,255,0.65); margin-top:6px; display:block; }
+.about-right .edu h4{ color:#fff; font-size:1.6rem; margin-bottom:8px; }
+.about-right .edu p{ color: rgba(255,255,255,0.6); }
+.about-right{
+    border-left: 4px solid var(--accent);
+    padding-left: 3rem;
+}
+
+.contact{ padding: 6rem 6%; background: transparent; }
+.contact-inner{ max-width:900px; margin:0 auto; }
+.contact-inner h2{ text-align:center; font-size:4.6rem; color:var(--accent); margin-bottom:2rem; }
+.contact-form label{ color:rgba(255,255,255,0.9); display:block; margin:1.2rem 0 0.6rem; }
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    background: rgba(255,255,255,0.03);
+    color:rgba(255,255,255,0.9);
+    padding:1.2rem 1.4rem;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,0.04);
+}
+.contact-form textarea{ resize:vertical; }
+.send-btn{ display:block; width:100%; margin-top:1.6rem; background:var(--accent); color:#fff; border-radius:8px; padding:1rem 1.6rem; font-size:1.6rem; border:0; }
+@media (max-width: 900px){
+    .about-grid{ grid-template-columns: 1fr; }
+    .about-right{ border-left: none; padding-left: 0; }
+}
+
+. p r o j e c t - c a r d   {   t r a n s i t i o n :   t r a n s f o r m   0 . 3 s   e a s e ,   b o x - s h a d o w   0 . 3 s   e a s e ;   }   . p r o j e c t - c a r d : h o v e r   {   t r a n s f o r m :   t r a n s l a t e Y ( - 1 0 p x ) ;   b o x - s h a d o w :   0   1 0 p x   3 0 p x   r g b a ( 1 8 1 ,   7 5 ,   2 5 5 ,   0 . 2 )   ! i m p o r t a n t ;   b o r d e r :   1 p x   s o l i d   v a r ( - - a c c e n t )   ! i m p o r t a n t ;   }  
+ . p r o j e c t - c a r d   {   b a c k g r o u n d :   r g b a ( 1 8 1 ,   7 5 ,   2 5 5 ,   0 . 0 3 ) ;   b o r d e r :   1 p x   s o l i d   r g b a ( 1 8 1 ,   7 5 ,   2 5 5 ,   0 . 1 ) ;   b o r d e r - r a d i u s :   2 0 p x ;   p a d d i n g :   2 r e m ;   t r a n s i t i o n :   a l l   0 . 4 s   c u b i c - b e z i e r ( 0 . 1 7 5 ,   0 . 8 8 5 ,   0 . 3 2 ,   1 . 2 7 5 ) ;   b a c k d r o p - f i l t e r :   b l u r ( 1 2 p x ) ;   - w e b k i t - b a c k d r o p - f i l t e r :   b l u r ( 1 2 p x ) ;   p o s i t i o n :   r e l a t i v e ;   o v e r f l o w :   h i d d e n ;   }   . p r o j e c t - c a r d : : b e f o r e   {   c o n t e n t :   " " ;   p o s i t i o n :   a b s o l u t e ;   t o p :   0 ;   l e f t :   - 1 0 0 % ;   w i d t h :   5 0 % ;   h e i g h t :   1 0 0 % ;   b a c k g r o u n d :   l i n e a r - g r a d i e n t ( t o   r i g h t ,   t r a n s p a r e n t ,   r g b a ( 2 5 5 ,   2 5 5 ,   2 5 5 ,   0 . 0 5 ) ,   t r a n s p a r e n t ) ;   t r a n s f o r m :   s k e w X ( - 2 0 d e g ) ;   t r a n s i t i o n :   0 . 7 s   e a s e ;   }   . p r o j e c t - c a r d : h o v e r : : b e f o r e   {   l e f t :   1 5 0 % ;   }   . p r o j e c t - c a r d : h o v e r   {   t r a n s f o r m :   t r a n s l a t e Y ( - 1 5 p x )   s c a l e ( 1 . 0 2 ) ;   b o x - s h a d o w :   0   2 0 p x   4 0 p x   r g b a ( 1 8 1 ,   7 5 ,   2 5 5 ,   0 . 2 5 )   ! i m p o r t a n t ;   b o r d e r - c o l o r :   v a r ( - - a c c e n t )   ! i m p o r t a n t ;   }   . p r o j e c t - i c o n   {   f o n t - s i z e :   3 . 5 r e m ;   c o l o r :   v a r ( - - a c c e n t ) ;   m a r g i n - b o t t o m :   1 . 5 r e m ;   d i s p l a y :   i n l i n e - f l e x ;   a l i g n - i t e m s :   c e n t e r ;   j u s t i f y - c o n t e n t :   c e n t e r ;   w i d t h :   7 0 p x ;   h e i g h t :   7 0 p x ;   b a c k g r o u n d :   r g b a ( 1 8 1 ,   7 5 ,   2 5 5 ,   0 . 1 ) ;   b o r d e r - r a d i u s :   1 5 p x ;   }  
+ 
