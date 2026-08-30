@@ -295,9 +295,12 @@ nav a.active{
     text-align: center;
     font-size: 4.6rem;
     font-weight: 800;
-    color: var(--accent);
     margin-bottom: 2rem;
-    text-shadow: 0 0 30px rgba(181, 75, 255, 0.3);
+    background: linear-gradient(135deg, #f7d4ff 0%, #d597ff 18%, #9d7dff 45%, #6fe8ff 72%, #ffd5f0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 30px rgba(181, 75, 255, 0.25);
 }
 
 .about-inner > p{
@@ -370,16 +373,22 @@ nav a.active{
 .projects-title{
     font-size: 4.6rem;
     font-weight: 800;
-    color: var(--accent);
     line-height: 1.15;
     margin-bottom: 2rem;
     text-align: center;
-    text-shadow: 0 0 30px rgba(181, 75, 255, 0.3);
+    background: linear-gradient(135deg, #f7d4ff 0%, #d597ff 18%, #9d7dff 45%, #6fe8ff 72%, #ffd5f0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 30px rgba(181, 75, 255, 0.25);
 }
 
 .projects-title span{
-    color: var(--accent);
-    text-shadow: 0 0 30px rgba(181, 75, 255, 0.3);
+    background: linear-gradient(135deg, #f7d4ff 0%, #d597ff 18%, #9d7dff 45%, #6fe8ff 72%, #ffd5f0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 30px rgba(181, 75, 255, 0.25);
 }
 
 .projects-subtitle{
@@ -778,8 +787,12 @@ nav a.active{
     text-align: center;
     font-size: 4rem;
     font-weight: 800;
-    color: var(--accent);
     margin-bottom: 3rem;
+    background: linear-gradient(135deg, #f7d4ff 0%, #d597ff 18%, #9d7dff 45%, #6fe8ff 72%, #ffd5f0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 30px rgba(181, 75, 255, 0.25);
 }
 
 .contact-form label{
